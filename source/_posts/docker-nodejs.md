@@ -10,7 +10,7 @@ tags:
 
 ## Introduction
 
-Docker is an amazing tool. It allows us to deploy quickly on any platform weather it be AWS, Google Cloud, Heroku, or basically any cloud provider without worry of complex install procedures. It also gets around the whole issue of "but it works on my machine" since the every developers "machine" is identical to each other and the server your app is deployed on. 
+Docker is an amazing tool. It allows us to deploy quickly on any platform whether it be AWS, Google Cloud, Heroku, or basically any cloud provider without worry of complex install procedures. It also gets around the whole issue of "but it works on my machine" since every developers "machine" is identical to each other and the server your app is deployed on. 
 
 Here we'll be guiding you through getting docker working with a simple node.js application and pointing you in the right direction to learn more. 
 
@@ -26,7 +26,7 @@ First of all your gonna need docker (duh). This process will change depending on
 
 ## Dockerfile
 
-Dockerfiles are the backbone of a docker based project. Think of it like a set up script that gives the instructions for building your container. Since we are making one for node.js we are going to use the `node:8.10.0-alpine` image as a base but you can change the 8.10.0 out for whatever version of node you happen to be using. So in your project base create a new file called `Dockerfile` with the following contents. 
+Dockerfiles are the backbone of a docker based project. Think of it like a setup script that gives the instructions for building your container. Since we are making one for node.js we are going to use the `node:8.10.0-alpine` image as a base but you can change the 8.10.0 out for whatever version of node you happen to be using. So in your project base create a new file called `Dockerfile` with the following contents. 
 
 ```
 FROM node:8.10.0-alpine
@@ -42,7 +42,7 @@ COPY src src
 CMD [ "npm", "start" ]
 ```
 
-If your a lazy fuck like I am you can just copy that and be done with it and continue reading [here](#Node-js-Application). But I'm going to go and explain each line of this file for the sake of the people out there who care. This is a guide after all. But if there's one key thing to learn here it's that we try to put all the commands that wont need to be re run at the top of the file. This is why we don't copy our src until the end of the file. This means that we wont have to run npm i each time we update our src files. If we just copied all the files and did npm i this would mean that we would have to re download ALL the npm modules each time we wanted to test our app. With this we only have to do that when we change package.json or package-lock.json.
+If you're a lazy fuck like I am you can just copy that and be done with it and continue reading [here](#Node-js-Application). But I'm going to go and explain each line of this file for the sake of the people out there who care. This is a guide after all. But if there's one key thing to learn here it's that we try to put all the commands that won't need to be re-run at the top of the file. This is why we don't copy our src until the end of the file. This means that we won't have to run npm I each time we update our src files. If we just copied all the files and did npm I this would mean that we would have to re-download ALL the npm modules each time we wanted to test our app. With this, we only have to do that when we change package.json or package-lock.json.
 
 ---
 
@@ -50,7 +50,7 @@ If your a lazy fuck like I am you can just copy that and be done with it and con
 FROM node:8.10.0-alpine
 ```
 
-This line creates the docker container based off the image found [here](https://hub.docker.com/_/node/). This image comes with nodejs in a lightweight os called [alpine](https://alpinelinux.org/) that's basically only used for docker. 
+This line creates the docker container based on the image found [here](https://hub.docker.com/_/node/). This image comes with nodejs in a lightweight os called [alpine](https://alpinelinux.org/) that's basically only used for docker. 
 
 ---
 
@@ -58,7 +58,7 @@ This line creates the docker container based off the image found [here](https://
 EXPOSE 3000
 ```
 
-This exposes port 3000 to allowing data to come in via this port. This can be set to whatever port you want you application to listen on. Pretty straightforward.
+This exposes port 3000 to allow data to come in via this port. This can be set to whatever port you want your application to listen on. Pretty straightforward.
 
 ---
 
@@ -66,27 +66,27 @@ This exposes port 3000 to allowing data to come in via this port. This can be se
 WORKDIR /app/
 ```
 
-This sets the working directory for out docker application. You can think of it like a `cd` command but unlike that it will keep it's directory state for when the container starts up and runs our start command we set with CMD.
+This sets the working directory for out docker application. You can think of it like a `cd` command but unlike that, it will keep its directory state for when the container starts up and runs our start command we set with CMD.
 
 ---
 ```
 COPY package*.json .
 ```
 
-This copies the two files that we need to install our npm modules that we need into our working directory `/app/` which is our current directory so we can refer to it with "." (. acts as the current directory and .. is the parent directory) and not have to use "/app". Having this separated from copying our src files means that we only have to re run the npm install command when we change those two files and we don't have to re run it when we change anything in src. This will make our builds a fuck of a lot faster.
+This copies the two files that we need to install the npm modules that we need into our working directory `/app/` which is our current directory so we can refer to it with "." (. acts as the current directory and .. is the parent directory) and not have to use "/app". Having this separated from copying our src files means that we only have to re-run the npm install command when we change those two files and we don't have to re-run it when we change anything in src. This will make our builds a fuck of a lot faster.
 
 ---
 ```
 RUN npm i
 ```
 
-This runs the bash command npm i installing all our node modules. You can run anything here that you would be able to in the terminal.
+This runs the bash command npm I installing all our node modules. You can run anything here that you would be able to in the terminal.
 
 ---
 ```
 COPY src src
 ```
-This copies all our source files from our local machine to our docker image into the src directory within our working directory. So the the src directory will end up in /app/src since our working directory is currently /app.
+This copies all our source files from our local machine to our docker image into the src directory within our working directory. So the src directory will end up in /app/src since our working directory is currently /app.
 
 ---
 ```
@@ -102,10 +102,10 @@ This defines how we want to start our docker container when we start it up. This
 
 ### Package.json
 
-For our application to run we don't need to have node.js installed on our machine but it couldn't hurt. If you want to get it follow one of the links below:
+For our application to run we don't need to have node.js installed on our machine but it couldn't hurt. If you want to get it to follow one of the links below:
 
 - [Linux/OSX](https://github.com/creationix/nvm) (I'd recommend getting nvm, it makes installing and switching node versions REALLY REALLY easy)
-- [Windows](https://nodejs.org/en/download/) (Seriously just try linux, you can dual boot you don't need to give up windows)
+- [Windows](https://nodejs.org/en/download/) (Seriously just try Linux, you can dual boot you don't need to give up windows)
 
 Once we have that we want to create a simple package.json file. Just copy the text below into a new file in the same folder as the Dockerfile called `package.json`.
 
@@ -122,7 +122,7 @@ Once we have that we want to create a simple package.json file. Just copy the te
 }
 ```
 
-I'm going to gloss over what this file is doing and what it can do. Baiscly all you need to know is it defines a start command with `"start": "node src/app.js"` that we can then run with `npm start` and it states that we are going to need to download [express](https://expressjs.com/) to be able to run our application.
+I'm going to gloss over what this file is doing and what it can do. Basically, all you need to know is it defines a start command with `"start": "node src/app.js"` that we can then run with `npm start` and it states that we are going to need to download [express](https://expressjs.com/) to be able to run our application.
 
 ### The Actual Fucking Code
 
@@ -140,7 +140,7 @@ app.get('/', (req, res) => {
 app.listen(port, () => console.log(`App listening on port ${port}!`));
 ```
 
-Wait what that's it? 9 fucking lines? Wow fuck this guide amiright.
+Wait what that's it? 9 fucking lines? Wow, fuck this guide amiright.
 
 Here's a breakdown of what's going on there. Skip to [here](#Building) if you could give less of a fuck.
 
@@ -160,20 +160,20 @@ app.get('/', (req, res) => {
 });
 ```
 
-This creates a new endpoint that accepts http GET requests. If we wanted to instead accept POST requests we could use `app.post(...` instead, same deal with any other http request type like PUT or DELETE. Then we define a function that takes in two parameters req and res that is called whenever a request is sent to the '/' endpoint. Then we use `res.send` to send a string to the client that made the request. 
+This creates a new endpoint that accepts HTTP GET requests. If we wanted to instead accept POST requests we could use `app.post(...` instead, same deal with any other HTTP request type like PUT or DELETE. Then we define a function that takes in two parameters req and res that is called whenever a request is sent to the '/' endpoint. Then we use `res.send` to send a string to the client that made the request. 
 
 ---
 ```javascript
 app.listen(port, () => console.log(`App listening on port ${port}!`));
 ```
 
-This just starts the express server on the port we defined at the top of our code and we give the .listen function a function to call once it's done this. In our case this is just a friendly little print statement that lets us know our server is up and running.
+This just starts the express server on the port we defined at the top of our code and we give the .listen function a function to call once it's done this. In our case, this is just a friendly little print statement that lets us know our server is up and running.
 
 ---
 
 ## Building
 
-Alright we got our app made now we get to the docker part of this bad boy. First you need to build your container to do this run the command below.
+Alright, we got our app made now we get to the docker part of this bad boy. First, you need to build your container to do this run the command below.
 
 ```bash
 $ docker build -t test-app .
@@ -187,7 +187,7 @@ REPOSITORY                                     TAG                 IMAGE ID     
 test-app                                       latest              8d7fac3109e3        1 second ago        70.4MB
 ```
 
-Cool cool, now that we have build our image we can run it with the command:
+Cool cool, now that we have built our image we can run it with the command:
 
 ```bash
 $ docker run -p 8080:3000 test-app
@@ -198,7 +198,7 @@ $ docker run -p 8080:3000 test-app
 App listening on port 3000!
 ```
 
-Fuck yeah, but wait what's that 8080:3000 shit? So to keep it short we are able to route an port from the docker image to a completely different port on localhost. So that means that our code is actually wrong so we need to go to [localhost:8080](localhost:8080) to see our output not localhost:3000. You should see this in your browser:
+Fuck yeah, but wait what's that 8080:3000 shit? So to keep it short we are able to route an port from the docker image to a completely different port on localhost. So that means that our code is actually wrong so we need to go to [localhost:8080](localhost:8080) to see our output, not localhost:3000. You should see this in your browser:
 
 ![Sup Bitches](/assets/images/docker-nodejs/pic1.png)
 
@@ -208,7 +208,7 @@ Pro tip: if you don't want to have an extra terminal for just the docker contain
 $ docker run -p 8080:3000 -d test-app
 ```
 
-Only downside to this is we cant see the logs, to do this we have to do as follows
+The only downside to this is we can't see the logs, to do this we have to do as follows
 
 ```bash
 $ docker run -p 8080:3000 -d test-app
