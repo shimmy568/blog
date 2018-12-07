@@ -14,6 +14,8 @@ Location: Same as above
 
 Mission: [Kick gum and chew ass](/assets/dukekickem.jpg)
 
+I have a [resume website](https://oanderson.me) **WARNING: Levels of bullshit is even higher there than here, you've been warned**
+
 Software engineering student at [uOttawa](https://www.uottawa.ca/en) doing the whole co-op thang. Giving this whole blog thing a shot as you can see. Not sure how it'll go but here I am. I'm a simple man, you can find all I need to survive below (In order of importance): 
 
 - Air
