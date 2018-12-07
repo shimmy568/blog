@@ -1,0 +1,2 @@
+# blog
+Just ma blog
