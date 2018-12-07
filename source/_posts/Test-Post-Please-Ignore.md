@@ -5,4 +5,4 @@ tags:
     - Test
 ---
 
-This is a test post please ignore it. Thanks
+This is a test post please ignore it. Thanks :sparkle:
