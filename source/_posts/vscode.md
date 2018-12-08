@@ -1,5 +1,5 @@
 ---
-title: Top 5 Reasons Why I Love VSCode
+title: Top 5 Reasons Why You Should Consider Switching To VSCode
 date: 2018-12-07 14:31:29
 tags:
     - vscode
@@ -41,8 +41,14 @@ That doesn't even talk about the awesome git based plugins like [Git History](ht
 
 ## Reason 4 - Built in debugger
 
-Ah the good ole `console.log()` debugging, as awesome as it is (sarcasm) VSCode has it's own debugger built in with multi language support when combined with the language plugins. This makes it really easy to debug code large or small. It's saved my ass more times than I can count weather I'm doing an assignment in Java or a quick web app for a hackathon in Node. 
+Ah the good ole `console.log()` debugging, as awesome as it is (sarcasm) VSCode has it's own debugger built in with multi language support when combined with the language plugins. This makes it really easy to debug code large or small. It's saved my ass more times than I can count weather I'm doing an assignment in Java or a quick web app for a hackathon in Node. The support could be better for some stuff not gonna lie, like you're not really able to use STDIN when using it. But that's about the only issue I've ever had with it. It has all the good shit like conditional breakpoints, stack trace, statement analysis and being able to view scoped variables. 
 
-## Reason 5 - Amazing keyboard shortcuts
+![Debugging a Java Project](/assets/images/vscode/pic5.png)
 
+## Reason 5 - Extensions
 
+Ok so I lied we gonna talk about extensions. But I mean come on, these extensions are amazing, there are all your favorite themes, file icon themes, support for every language on the face of the earth, and more than I could talk about in a short article. The editor has been built from the ground up with extensions in mind, even the choice to go with electron was to make it as easy as possible for people to make extensions since lots of people know JavaScript and it's comparatively easy to pick up. Not to mention each extension can have it's settings in that settings file I mention earlier and any feature the extension adds can be bound to a shortcut or just used through the command pallet. Pretty Nice
+
+## The End
+
+There are tons of editors out there from Vim to Notepad++, a lot of it comes down to preference and these are just a couple reasons I've always kept coming back to VSCode even after trying to pick up others, it just has the best support for my developing needs in my opinion. Or at least I haven't found anything that does it better yet, when I do I'll be saying goodbye to VSCode, but I have a feeling it's going to be a while.
