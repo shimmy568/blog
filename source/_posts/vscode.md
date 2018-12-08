@@ -44,3 +44,5 @@ That doesn't even talk about the awesome git based plugins like [Git History](ht
 Ah the good ole `console.log()` debugging, as awesome as it is (sarcasm) VSCode has it's own debugger built in with multi language support when combined with the language plugins. This makes it really easy to debug code large or small. It's saved my ass more times than I can count weather I'm doing an assignment in Java or a quick web app for a hackathon in Node. 
 
 ## Reason 5 - Amazing keyboard shortcuts
+
+
