@@ -1,11 +1,10 @@
 ---
-title: Top 5 Reasons Why You Should Consider Switching To VSCode
+title: Top 5 Reasons Why You Should Consider VSCode
 date: 2018-12-07 14:31:29
 tags:
     - vscode
     - review
     - list
-    - IDE
 ---
 
 ## Introduction
@@ -39,7 +38,7 @@ Git is the most popular version control system today. While VSCode supports othe
 
 That doesn't even talk about the awesome git based plugins like [Git History](https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory), [Git Blame](https://marketplace.visualstudio.com/items?itemName=waderyan.gitblame), [Git Project Manager](https://marketplace.visualstudio.com/items?itemName=felipecaputo.git-project-manager), and [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) that turn your editor into a super-powered text editing git machine.
 
-## Reason 4 - Built in debugger
+## Reason 4 - Built In Debugger
 
 Ah, the good ole `console.log()` debugging, as awesome as it is (sarcasm) VSCode has its own debugger built in with multi-language support when combined with the language plugins. This makes it really easy to debug code large or small. It's saved my ass more times than I can count whether I'm doing an assignment in Java or a quick web app for a hackathon in Node. The support could be better for some stuff not gonna lie like you're not really able to use STDIN when using it. But that's about the only issue I've ever had with it. It has all the good shit like conditional breakpoints, stack trace, statement analysis and being able to view scoped variables. 
 
