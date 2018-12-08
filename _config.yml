@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Shimmy568's Programming Den
+title: "{{witty-title}} : Software Engineering Blog"
 subtitle: Lets Burn This Mother Down
 redirectTitle: Home
 description: A blog for a meme lord software engineer
