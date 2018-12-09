@@ -6,9 +6,9 @@ tags:
     - guide
 ---
 
-## Introduction
+# Introduction
 
-## Setting Up The Environment
+# Setting Up The Environment
 
 For this project we will be using a library called [SFML](https://www.sfml-dev.org/index.php) this will allow us to create and save images. This isn't 100% needed but ur not my mom, you can't tell me what to do. Jokes aside it will allow us to write to .png files and see a more visual output of our code working. Which may be nice. The way that I linked it you'll need to install the library. Below is an example of getting it in a debian environment. 
 
@@ -23,6 +23,7 @@ To all we have to do to set up CMake is to create a file called CMakeLists.txt i
 ```
 cmake_minimum_required(VERSION 3.1)
 project(mandelbrot)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
 
 SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")
 SET(CMAKE_BUILD_TYPE Debug)
@@ -41,7 +42,7 @@ file(GLOB SOURCES "src/*.cpp")
 #Create the executable
 add_executable(mandelbrot ${SOURCES})
 
-find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
+find_package(SFML 2.4.2 COMPONENTS graphics audio REQUIRED)
 target_link_libraries(mandelbrot sfml-graphics sfml-audio)
 
 #Set to using the latest and greatest version of c++
@@ -51,3 +52,116 @@ set_target_properties(mandelbrot PROPERTIES
 )
 ```
 
+You'll also need to make a new folder called cmake_modules and download [this](https://raw.githubusercontent.com/SFML/SFML-Game-Development-Book/master/CMake/FindSFML.cmake) file and place it in that folder. This file will allow cmake to find our installation of SFML.
+
+Once we have all that shite set up we can add a simple hello world file at `src/main.cpp` and while your at it make a `include` directory to store our header files.
+
+```cpp
+#include <iostream>
+
+int main(int argc, char **argv) {
+    std::printf("hello world\n");
+
+    return 0;
+}
+```
+
+After all this your directory should looking a little something like this:
+
+```
+├── CMakeLists.txt
+├── cmake_modules
+│   └── FindSFML.cmake
+├── include <-- #This is a folder not a file#
+└── src
+    └── main.cpp
+```
+
+Once we have all that set up we should be able to run our build command to generate our executeable and then run it. 
+
+```bash
+$ cmake .
+-- The C compiler identification is GNU 7.2.0
+-- The CXX compiler identification is GNU 7.2.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found SFML 2.4.2 in /usr/include
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/user/Documents/projects/Mandelbrot
+
+$ make
+Scanning dependencies of target mandelbrot
+[ 50%] Building CXX object CMakeFiles/mandelbrot.dir/src/main.cpp.o
+[100%] Linking CXX executable mandelbrot
+[100%] Built target mandelbrot
+
+$ ./mandelbrot
+hello world
+```
+
+Eyy, alright so now that we have our code environment we can move on to actually getting some work done on the code
+
+## VSCode helpful config files 
+
+.vscode/tasks.json
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "make",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
+```
+
+---
+
+Make sure you have gdb for this one, this will allow us to debug our code http://www.gdbtutorial.com/tutorial/how-install-gdb
+
+.vscode/launch.json
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/mandelbrot",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}
+```
+
+# 
