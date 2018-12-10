@@ -8,6 +8,10 @@ tags:
 
 # Introduction
 
+A mandelbrot set is a type of fractal that was discovered a while ago. When it was discovered doesn't really matter all that does is how cool it looks. I mean look at that shit hot damn. If you want to have your mind blown big time watch a zoom video on YouTube, that stuff is wild. What's even crazier is how simple the function that makes this neat fractal is. It's only  {% math %} z_{n+1} = z_{n}^2 + c {% endmath %}, that's it I'll explain how you actually get it from that graph later on in this article. 
+
+![A picture of a mandelbrot fractal](/assets/images/mandelbrot-guide/pic_1.jpg)
+
 # Setting Up The Environment
 
 For this project we will be using a library called [SFML](https://www.sfml-dev.org/index.php) this will allow us to create and save images. This isn't 100% needed but ur not my mom, you can't tell me what to do. Jokes aside it will allow us to write to .png files and see a more visual output of our code working. Which may be nice. The way that I linked it you'll need to install the library. Below is an example of getting it in a debian environment. 
@@ -164,4 +168,11 @@ Make sure you have gdb for this one, this will allow us to debug our code http:/
 }
 ```
 
-# 
+# Calculating The Mandelbrot set
+
+So a Mandelbrot is defined by a fairly simple recursive mathematical function (see below). The way that we color the points is based on how quickly this function goes off to the moon (goes to infinity / diverges). If the point on the graph doesn't diverge in the set number of iterations we color it black. Otherwise we color it depending on how fast it took to diverge. 
+
+{% math %}
+z_{n+1} = z_{n}^2 + c
+{% endmath %}
+
