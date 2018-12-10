@@ -1,5 +1,5 @@
 ---
-title: Making A Mandelbrot With C++
+title: Making A Mandelbrot Fractal Visualizer With C++
 date: 2018-12-08 19:01:55
 tags:
     - C++
@@ -54,15 +54,15 @@ set_target_properties(mandelbrot PROPERTIES
 
 You'll also need to make a new folder called cmake_modules and download [this](https://raw.githubusercontent.com/SFML/SFML-Game-Development-Book/master/CMake/FindSFML.cmake) file and place it in that folder. This file will allow cmake to find our installation of SFML.
 
-Once we have all that shite set up we can add a simple hello world file at `src/main.cpp` and while your at it make a `include` directory to store our header files.
+Once we have all that shite set up we can add a simple hello world file at `src/Main.cpp` and while your at it make a `include` directory to store our header files.
 
 ```cpp
 #include <iostream>
 
 int main(int argc, char **argv) {
-    std::printf("hello world\n");
+  std::printf("hello world\n");
 
-    return 0;
+  return 0;
 }
 ```
 
@@ -74,7 +74,7 @@ After all this your directory should looking a little something like this:
 │   └── FindSFML.cmake
 ├── include <-- #This is a folder not a file#
 └── src
-    └── main.cpp
+    └── Main.cpp
 ```
 
 Once we have all that set up we should be able to run our build command to generate our executeable and then run it. 
@@ -102,7 +102,7 @@ $ cmake .
 
 $ make
 Scanning dependencies of target mandelbrot
-[ 50%] Building CXX object CMakeFiles/mandelbrot.dir/src/main.cpp.o
+[ 50%] Building CXX object CMakeFiles/mandelbrot.dir/src/Main.cpp.o
 [100%] Linking CXX executable mandelbrot
 [100%] Built target mandelbrot
 
